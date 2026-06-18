@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Password</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff6b6b,#6c5ce7,#00cec9,#fdcb6e);
+    background-size:400% 400%;
+    animation:gradientBG 8s ease infinite;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.forgot-box{
+    width:400px;
+    padding:35px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+.forgot-box h2{
+    color:white;
+    margin-bottom:15px;
+}
+
+.forgot-box p{
+    color:white;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    outline:none;
+    font-size:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:white;
+    color:#6c5ce7;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.message{
+    margin-top:15px;
+    color:white;
+    font-weight:bold;
+}
+
+.back-link{
+    margin-top:20px;
+}
+
+.back-link a{
+    color:white;
+    text-decoration:none;
+}
+
+.back-link a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:450px){
+    .forgot-box{
+        width:90%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="forgot-box">
+
+    <h2>🔑 Forgot Password</h2>
+
+    <p>Enter your email address to receive a password reset link.</p>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter your email">
+
+    <button onclick="resetPassword()">
+        Send Reset Link
+    </button>
+
+    <div class="message" id="message"></div>
+
+    <div class="back-link">
+        <a href="#">← Back to Login</a>
+    </div>
+
+</div>
+
+<script>
+
+function resetPassword(){
+
+    let email =
+        document.getElementById("email").value;
+
+    if(email === ""){
+        document.getElementById("message").innerHTML =
+        "❌ Please enter your email address";
+        return;
+    }
+
+    document.getElementById("message").innerHTML =
+    "✅ Password reset link sent successfully!";
+}
+
+</script>
+
+</body>
+</html>
